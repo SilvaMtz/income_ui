@@ -18,7 +18,7 @@ const AuthCard = (props) => {
     <PanelCard maxWidth={props.maxWidth} paddingSize="none">
       <div className={classes['auth-card']}>
         <div className={imageBoxClassList.join(' ')}>
-          Image Content
+          {props.authImage}
         </div>
         <div className={childrenClassList.join(' ')}>
           <h2 className={classes['form-label']}>{props.formLabel}</h2>

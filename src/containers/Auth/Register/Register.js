@@ -49,7 +49,7 @@ const Register = (props) => {
 
   return (
     <div className={classes['register-container']}>
-      <AuthCard maxWidth={700} formLabel="Register">
+      <AuthCard maxWidth={700} formLabel="Register" authImage="Account Image">
         <Form>
           <Input placeholder="Name" />
           <Input placeholder="Last Name" />
@@ -61,7 +61,7 @@ const Register = (props) => {
           </ActionButton>
         </Form>
         <h5>Already have and account? Log in!</h5>
-        <ActionButton href="/login" label="Log in" />
+        <ActionButton restrainWidth={true} href="/login" label="Log in" />
       </AuthCard>
     </div>
   );

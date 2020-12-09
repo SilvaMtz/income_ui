@@ -23,7 +23,8 @@ const ActionButton = (props) => {
     props.fill ? classes['fill'] : null,
     props.size
       ? classes[buttonSizeMapping[props.size]]
-      : classes[buttonSizeMapping['default']]
+      : classes[buttonSizeMapping['default']],
+    props.restrainWidth ? classes['restrain-width'] : null
   ];
 
   let button = (
