@@ -1,0 +1,38 @@
+.auth-card {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .auth-card {
+    flex-direction: column;
+  }
+}
+
+.card-box {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-basis: 1;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.image-card-box {
+  background-color: #0e0f0f;
+}
+
+.children-card-box {
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.form-label {
+  margin-top: 0;
+}

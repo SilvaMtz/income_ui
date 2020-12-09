@@ -1,0 +1,73 @@
+.action-button {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  border-radius: 6px;
+  border: none;
+  outline: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  margin: 12px;
+  color: hsl(214, 100%, 59%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.1s;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.012rem;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.action-button.button--medium {
+  height: 42px;
+}
+
+.action-button.button--large {
+  height: 48px;
+}
+
+.action-button.flex-start {
+  justify-content: flex-start;
+}
+
+.action-button:hover {
+  background-color: #3A3B3D;
+}
+
+.action-button.button--default.fill {
+  background-color: #3A3B3D;
+  color: #c5c5c5;
+}
+
+.action-button.button--default.fill:hover {
+  background-color:#494949
+}
+
+.action-button.button--primary.fill {
+  background-color: hsl(214, 100%, 59%);
+  color: white;
+}
+
+.action-button.button--primary.fill:hover {
+  background-color:hsl(214, 100%, 64%);
+}
+
+.action-button.button--danger {
+  color: hsl(0, 97%, 56%);
+}
+
+.action-button.button--danger:hover {
+  background-color: rgba(252, 34, 34, 0.2);
+}
+
+.action-button.button--danger.fill {
+  background-color: hsl(0, 97%, 56%);
+  color: white;
+}
+
+.action-button.button--danger.fill:hover {
+  background-color: hsl(0, 97%, 62%);
+}

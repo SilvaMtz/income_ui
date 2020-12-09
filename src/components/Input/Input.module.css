@@ -10,8 +10,8 @@
   box-sizing: border-box;
   transition: border 0.2s;
   color: #c5c5c5;
-  padding: 4px 12px;
-  font-size: 0.9rem;
+  padding: 4px 14px;
+  font-size: 0.95rem;
 }
 
 .input:focus {

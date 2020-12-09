@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import classes from './Register.module.css';
-import PanelCard from '../../../components/PanelCard/PanelCard';
 import Input from '../../../components/Input/Input';
+import AuthCard from '../AuthCard/AuthCard';
+import ActionButton from '../../../components/ActionButton/ActionButton';
 
 const Register = (props) => {
-
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -16,32 +19,51 @@ const Register = (props) => {
       user: {
         email: email,
         password: password,
-        password_confirmation: password
-      }
-    }
-    axios.post('http://localhost:3000/users', formData)
-      .then(response => {
+        password_confirmation: password,
+      },
+    };
+    axios
+      .post('http://localhost:3000/users', formData)
+      .then((response) => {
         console.log(response);
-      }).catch(error => {
-        console.log(error);
       })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
+  const handleDummySubmit = (e) => {
+    e.preventDefault();
+    const dummyData = {
+      user: {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        password: password,
+        password_confirmation: password,
+      },
+    };
+    console.log(dummyData);
   };
 
   return (
     <div className={classes['register-container']}>
-      <PanelCard maxWidth={600}>
-        REGISTER
-        <Input placeholder="email" />
-      </PanelCard>
-
-      {/* <form>
-        <input placeholder="email" name="email" type="email" onChange={(e) => setEmail(e.target.value)} />
-        <input placeholder="password" name="password" type="password" onChange={(e) => setPassword(e.target.value)} />
-        <button onClick={handleFormSubmit}>SUBMIT</button>
-      </form> */}
+      <AuthCard maxWidth={700} formLabel="Register">
+        <form>
+          <Input placeholder="Name" />
+          <Input placeholder="Last Name" />
+          <Input placeholder="Email" />
+          <Input placeholder="Password" />
+          <Input placeholder="Confirm Password" />
+          <ActionButton onClick={handleDummySubmit} fill={true} color="primary">
+            Submit
+          </ActionButton>
+        </form>
+        <h4>Already have and account? Log in!</h4>
+        <ActionButton href="/login" label="Log in" />
+      </AuthCard>
     </div>
-  )
-}
+  );
+};
 
 export default Register;
