@@ -1,8 +1,15 @@
-.input {
+.input-wrapper {
   width: 100%;
   margin-bottom: 16px;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
   height: 36px;
-  background-color: #3A3B3D;
+  background-color: #3a3b3d;
   border-radius: 18px;
   display: flex;
   border: none;
@@ -12,6 +19,13 @@
   color: #c5c5c5;
   padding: 4px 14px;
   font-size: 0.95rem;
+}
+
+.input-label {
+  margin-left: 16px;
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+  color: #c6c6c6;
 }
 
 .input:focus {

@@ -38,17 +38,19 @@
   justify-content: flex-start;
 }
 
-.action-button:hover {
-  background-color: #3A3B3D;
+.action-button:hover,
+.action-button:focus {
+  background-color: #3a3b3d;
 }
 
 .action-button.button--default.fill {
-  background-color: #3A3B3D;
+  background-color: #3a3b3d;
   color: #c5c5c5;
 }
 
-.action-button.button--default.fill:hover {
-  background-color:#494949
+.action-button.button--default.fill:hover,
+.action-button.button--default.fill:focus {
+  background-color: #494949;
 }
 
 .action-button.button--primary.fill {
@@ -56,15 +58,17 @@
   color: white;
 }
 
-.action-button.button--primary.fill:hover {
-  background-color:hsl(214, 100%, 64%);
+.action-button.button--primary.fill:hover,
+.action-button.button--primary.fill:focus {
+  background-color: hsl(214, 100%, 64%);
 }
 
 .action-button.button--danger {
   color: hsl(0, 97%, 56%);
 }
 
-.action-button.button--danger:hover {
+.action-button.button--danger:hover,
+.action-button.button--danger:focus {
   background-color: rgba(252, 34, 34, 0.2);
 }
 
@@ -73,6 +77,7 @@
   color: white;
 }
 
-.action-button.button--danger.fill:hover {
+.action-button.button--danger.fill:hover,
+.action-button.button--danger.fill:focus {
   background-color: hsl(0, 97%, 62%);
 }

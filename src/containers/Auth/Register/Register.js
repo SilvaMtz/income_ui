@@ -56,7 +56,11 @@ const Register = (props) => {
           <Input placeholder="Email" />
           <Input placeholder="Password" />
           <Input placeholder="Confirm Password" />
-          <ActionButton onClick={handleDummySubmit} fill={true} color="primary">
+          <ActionButton
+            onClick={handleDummySubmit}
+            fill={true}
+            color="primary"
+          >
             Submit
           </ActionButton>
         </Form>
