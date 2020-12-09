@@ -4,6 +4,7 @@ import classes from './Register.module.css';
 import Input from '../../../components/Input/Input';
 import AuthCard from '../AuthCard/AuthCard';
 import ActionButton from '../../../components/ActionButton/ActionButton';
+import Form from '../../../components/Form/Form';
 
 const Register = (props) => {
   const [firstName, setFirstName] = useState('');
@@ -40,7 +41,7 @@ const Register = (props) => {
         last_name: lastName,
         email: email,
         password: password,
-        password_confirmation: password,
+        password_confirmation: passwordConfirmation,
       },
     };
     console.log(dummyData);
@@ -49,7 +50,7 @@ const Register = (props) => {
   return (
     <div className={classes['register-container']}>
       <AuthCard maxWidth={700} formLabel="Register">
-        <form>
+        <Form>
           <Input placeholder="Name" />
           <Input placeholder="Last Name" />
           <Input placeholder="Email" />
@@ -58,8 +59,8 @@ const Register = (props) => {
           <ActionButton onClick={handleDummySubmit} fill={true} color="primary">
             Submit
           </ActionButton>
-        </form>
-        <h4>Already have and account? Log in!</h4>
+        </Form>
+        <h5>Already have and account? Log in!</h5>
         <ActionButton href="/login" label="Log in" />
       </AuthCard>
     </div>

@@ -11,7 +11,7 @@ const AuthCard = (props) => {
 
   let imageBoxClassList = [
     classes['card-box'],
-    classes['children-card-box']
+    classes['image-card-box']
   ]
 
   return (
