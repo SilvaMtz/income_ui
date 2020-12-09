@@ -1,0 +1,19 @@
+.input {
+  width: 100%;
+  margin: 4px;
+  height: 36px;
+  background-color: #3A3B3D;
+  border-radius: 18px;
+  display: flex;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.2s;
+  color: #c5c5c5;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+}
+
+.input:focus {
+  border: 2px solid hsl(214, 100%, 59%);
+}

@@ -1,17 +1,17 @@
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Auth from './containers/auth/auth';
-import Home from './containers/home/home';
+import Register from './containers/Auth/Register/Register';
+import Login from './containers/Auth/Login/Login';
 
 function App() {
+
   return (
     <div className="App">
-      <Layout>
-        <Switch>
-          <Route path="/auth" component={Auth} />
-          <Route path="/" exact component={Home} />
-        </Switch>
-      </Layout>
+      <Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/" exact component={Login} />
+      </Switch>
     </div>
   );
 }
