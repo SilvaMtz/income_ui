@@ -1,0 +1,14 @@
+:root {
+  --accent-blue: #2e89ff;
+  --accent-blue-light: #4797ff;
+  --danger-red: #fc2222;
+  --danger-red-light: #fc4040;
+  --danger-red-opaque: rgba(252, 34, 34, 0.2);
+  --text-white: #fff;
+  --text-white-shade: #c5c5c5;
+  --palette-shade-0: #0a0a0a;
+  --palette-shade-1: #18191A;
+  --palette-shade-2: #242526;
+  --palette-shade-3: #3a3b3d;
+  --palette-shade-4: #494949;
+}

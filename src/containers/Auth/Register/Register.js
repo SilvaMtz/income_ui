@@ -49,13 +49,13 @@ const Register = (props) => {
 
   return (
     <div className={classes['register-container']}>
-      <AuthCard maxWidth={700} formLabel="Register" authImage="Account Image">
+      <AuthCard maxWidth={900} formLabel="Register" authImage="Account Image">
         <Form>
-          <Input placeholder="Name" />
-          <Input placeholder="Last Name" />
-          <Input placeholder="Email" />
-          <Input placeholder="Password" />
-          <Input placeholder="Confirm Password" />
+          <Input placeholder="Name" iconType="userCircle" />
+          <Input placeholder="Last Name" iconType="user" />
+          <Input placeholder="Email" iconType="atSymbol" />
+          <Input placeholder="Password" iconType="key" />
+          <Input placeholder="Confirm Password" iconType="lockClosed" />
           <ActionButton
             onClick={handleDummySubmit}
             fill={true}

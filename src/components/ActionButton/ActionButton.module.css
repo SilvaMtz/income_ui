@@ -11,7 +11,7 @@
   align-items: center;
   padding: 12px;
   margin: 12px auto;
-  color: hsl(214, 100%, 59%);
+  color: #2e89ff;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.1s;
@@ -60,11 +60,11 @@
 
 .action-button.button--primary.fill:hover,
 .action-button.button--primary.fill:focus {
-  background-color: hsl(214, 100%, 64%);
+  background-color: #4797ff;
 }
 
 .action-button.button--danger {
-  color: hsl(0, 97%, 56%);
+  color: #fc2222;
 }
 
 .action-button.button--danger:hover,
@@ -73,11 +73,11 @@
 }
 
 .action-button.button--danger.fill {
-  background-color: hsl(0, 97%, 56%);
+  background-color: #fc2222;
   color: white;
 }
 
 .action-button.button--danger.fill:hover,
 .action-button.button--danger.fill:focus {
-  background-color: hsl(0, 97%, 62%);
+  background-color: #fc4040;
 }

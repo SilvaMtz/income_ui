@@ -1,8 +1,17 @@
 import React from 'react';
 import classes from './Input.module.css';
+import SvgIcon from '../SvgIcon/SvgIcon';
 
 const Input = (props) => {
-  let classList = [classes['input']];
+  let wrapperClassList = [
+    classes['input-wrapper'],
+    props.iconType ? classes['wrapper--hasIcon'] : null,
+  ];
+
+  let inputClassList = [
+    classes['input'],
+    props.iconType ? classes['input--hasIcon'] : null,
+  ];
 
   let inputLabel = null;
 
@@ -12,11 +21,24 @@ const Input = (props) => {
     );
   }
 
+  let svgIcon = null;
+  if (props.iconType) {
+    svgIcon = (
+      <SvgIcon
+        className={classes['input-icon']}
+        icon={props.iconType}
+        color="#c5c5c5"
+        size="small"
+      />
+    );
+  }
+
   return (
-    <div className={classes['input-wrapper']}>
+    <div className={wrapperClassList.join(' ')}>
       {inputLabel}
+      {svgIcon}
       <input
-        className={classList.join(' ')}
+        className={inputClassList.join(' ')}
         onChange={props.onChange}
         type={props.type}
         placeholder={props.placeholder}
