@@ -1,10 +1,11 @@
 export const DarkTheme = {
   accentBlue: '#2e89ff',
   accentBlueLight: '#4797ff',
+  accentBlueOpaque: '#2e89ff33',
   dangerRed: '#fc2222',
   dangerRedLight: '#fc4040',
   dangerRedOpaque: '#fc222233',
-  textColor: '#fff',
+  textColor: '#ffffff',
   textColorShade: '#c5c5c5',
   paletteShade0: '#0a0a0a',
   paletteShade1: '#18191A',
