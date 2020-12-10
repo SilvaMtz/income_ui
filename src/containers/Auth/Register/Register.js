@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axiosLocal from '../../../axios-local';
 import classes from './Register.module.css';
 import Input from '../../../components/Input/Input';
 import AuthCard from '../AuthCard/AuthCard';
 import ActionButton from '../../../components/ActionButton/ActionButton';
 import Form from '../../../components/Form/Form';
 
-const Register = (props) => {
+const Register = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -19,12 +19,14 @@ const Register = (props) => {
     const formData = {
       user: {
         email: email,
+        first_name: firstName,
+        last_name: lastName,
         password: password,
         password_confirmation: password,
       },
     };
-    axios
-      .post('http://localhost:3000/users', formData)
+    axiosLocal
+      .post('/users', formData)
       .then((response) => {
         console.log(response);
       })
@@ -33,34 +35,46 @@ const Register = (props) => {
       });
   };
 
-  const handleDummySubmit = (e) => {
-    e.preventDefault();
-    const dummyData = {
-      user: {
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        password: password,
-        password_confirmation: passwordConfirmation,
-      },
-    };
-    console.log(dummyData);
-  };
-
   return (
     <div className={classes['register-container']}>
       <AuthCard maxWidth={900} formLabel="Register" authImage="Account Image">
         <Form>
-          <Input placeholder="Name" iconType="userCircle" />
-          <Input placeholder="Last Name" iconType="user" />
-          <Input placeholder="Email" iconType="atSymbol" />
-          <Input placeholder="Password" iconType="key" />
-          <Input placeholder="Confirm Password" iconType="lockClosed" />
-          <ActionButton
-            onClick={handleDummySubmit}
-            fill={true}
-            color="primary"
-          >
+          <Input
+            placeholder="Name"
+            iconType="userCircle"
+            type="text"
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+          />
+          <Input
+            placeholder="Last Name"
+            iconType="user"
+            type="text"
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
+          />
+          <Input
+            placeholder="Email"
+            iconType="atSymbol"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <Input
+            placeholder="Password"
+            iconType="key"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <Input
+            placeholder="Confirm Password"
+            iconType="lockClosed"
+            type="password"
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            value={passwordConfirmation}
+          />
+          <ActionButton onClick={handleFormSubmit} fill={true} color="primary">
             Submit
           </ActionButton>
         </Form>

@@ -20,10 +20,26 @@ const Login = (props) => {
 
   return (
     <div className={classes['login-container']}>
-      <AuthCard maxWidth={900} formLabel="Welcome Back!" authImage="Account Image">
+      <AuthCard
+        maxWidth={900}
+        formLabel="Welcome Back!"
+        authImage="Account Image"
+      >
         <Form>
-          <Input placeholder="Email" iconType="atSymbol" />
-          <Input placeholder="Password" iconType="key" />
+          <Input
+            placeholder="Email"
+            iconType="atSymbol"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            placeholder="Password"
+            iconType="key"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <ActionButton onClick={handleAuthLogin} fill={true} color="primary">
             Log in
           </ActionButton>
