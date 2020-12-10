@@ -27,7 +27,7 @@ const Input = (props) => {
       <SvgIcon
         className={classes['input-icon']}
         icon={props.iconType}
-        color="#c5c5c5"
+        color="var(--text-color-shade)"
         size="small"
       />
     );

@@ -16,7 +16,7 @@ const SvgIcon = (props) => {
     props.className
   ]
 
-  let iconColor = props.color ? props.color : 'white';
+  let iconColor = props.color ? props.color : 'var(--text-color)';
 
   return (
     <svg

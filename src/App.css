@@ -2,6 +2,6 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: #18191A;
-  color: white;
+  background-color: var(--palette-shade-1);
+  color: var(--text-color);
 }

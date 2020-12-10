@@ -24,7 +24,7 @@
 }
 
 .image-card-box {
-  background-color: #0e0f0f;
+  background-color: var(--palette-shade-0);
   border-radius: 8px;
 }
 

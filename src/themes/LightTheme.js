@@ -7,9 +7,10 @@ export const LightTheme = {
   dangerRedOpaque: '#fc222233',
   textColor: '#1c1c1c',
   textColorShade: '#3c3c3c',
-  paletteShade0: '#FFFFFF',
+  paletteShade0: '#cacaca',
   paletteShade1: '#F0F2F5',
-  paletteShade2: '#E4E6EB',
-  paletteShade3: '#F4F4F4',
-  paletteShade4: '#cacaca',
+  paletteShade2: '#FFFFFF',
+  paletteShade3: '#E4E6EB',
+  paletteShade4: '#F4F4F4',
 }
+
