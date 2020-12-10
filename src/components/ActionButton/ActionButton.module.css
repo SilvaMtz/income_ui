@@ -69,7 +69,7 @@
 
 .action-button.button--danger:hover,
 .action-button.button--danger:focus {
-  background-color: rgba(252, 34, 34, 0.2);
+  background-color: #fc222233;
 }
 
 .action-button.button--danger.fill {

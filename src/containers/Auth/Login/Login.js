@@ -20,7 +20,7 @@ const Login = (props) => {
 
   return (
     <div className={classes['login-container']}>
-      <AuthCard maxWidth={900} formLabel="Log in" authImage="Account Image">
+      <AuthCard maxWidth={900} formLabel="Welcome Back!" authImage="Account Image">
         <Form>
           <Input placeholder="Email" iconType="atSymbol" />
           <Input placeholder="Password" iconType="key" />
