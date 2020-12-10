@@ -1,0 +1,24 @@
+import * as actionTypes from './action-types';
+import axiosLocal from '../../axios-local';
+
+export const authStart = () => {
+  return {
+    type: actionTypes.AUTH_START
+  }
+}
+
+export const authSuccess = (token, userId) => {
+  return {
+    type: actionTypes.AUTH_SUCCESS,
+    payload: {
+      token: token,
+      userId: userId
+    }
+  }
+}
+
+export const authFail = (error) => {
+  return {
+    type: actionTypes.AUTH_START
+  }
+}

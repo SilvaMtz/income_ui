@@ -4,18 +4,30 @@ import Input from '../../../components/Input/Input';
 import AuthCard from '../AuthCard/AuthCard';
 import ActionButton from '../../../components/ActionButton/ActionButton';
 import Form from '../../../components/Form/Form';
+import axiosLocal from '../../../axios-local';
 
-const Login = (props) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleAuthLogin = (e) => {
     e.preventDefault();
+
     const loginData = {
-      email: email,
-      password: password,
+      user: {
+        email: email,
+        password: password,
+      },
     };
-    console.log(loginData);
+
+    axiosLocal
+      .post('/users/sign_in', loginData)
+      .then((response) => {
+        console.log(response.headers);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
