@@ -4,30 +4,16 @@ import Input from '../../../components/Input/Input';
 import AuthCard from '../AuthCard/AuthCard';
 import ActionButton from '../../../components/ActionButton/ActionButton';
 import Form from '../../../components/Form/Form';
-import axiosLocal from '../../../axios-local';
+import { connect } from 'react-redux'
+import * as actions from '../../../store/actions/index';
 
-const Login = () => {
+const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleAuthLogin = (e) => {
     e.preventDefault();
-
-    const loginData = {
-      user: {
-        email: email,
-        password: password,
-      },
-    };
-
-    axiosLocal
-      .post('/users/sign_in', loginData)
-      .then((response) => {
-        console.log(response.headers);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    props.onAuth(email, password)
   };
 
   return (
@@ -63,4 +49,19 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.auth.isLoading,
+    error: state.auth.error,
+    isAuthenticated: state.auth.token != null,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAuth: (email, password) =>
+      dispatch(actions.auth(email, password)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
