@@ -12,6 +12,8 @@ import ActionButton from './components/ActionButton/ActionButton';
 import Register from './containers/Auth/Register/Register';
 import Home from './containers/home/home';
 import Login from './containers/Auth/Login/Login';
+import Layout from './hoc/Layout/Layout';
+import Profile from './containers/Profile/Profile';
 
 const App = (props) => {
   useEffect(() => {
@@ -33,10 +35,13 @@ const App = (props) => {
 
   if (props.isAuthenticated) {
     routes = (
-      <Switch>
-        <Route path="/home" component={Home} />
-        <Redirect to="/home" />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/home" component={Home} />
+          <Route path="/profile" component={Profile} />
+          <Redirect to="/home" />
+        </Switch>
+      </Layout>
     );
     logoutButton = (
       <div

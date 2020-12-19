@@ -5,6 +5,7 @@ import icons from '../../assets/icons/icons';
 const SvgIcon = (props) => {
 
   const iconSizeMapping = {
+    extraSmall: 'icon--extraSmall',
     small: '',
     medium: 'icon--medium',
     large: 'icon--large',

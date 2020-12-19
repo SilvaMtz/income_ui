@@ -1,0 +1,52 @@
+.sidenav-item {
+  width: auto;
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  box-sizing: border-box;
+  margin: 4px 12px;
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: 600;
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  transition: background-color 0.1s, width 0.1s;
+  color: var(--text-color);
+}
+
+.sidenav-item svg {
+  fill: var(--text-color);
+}
+
+.sidenav-item.extended {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.label {
+  display: block;
+  margin: 0;
+  margin-left: 16px;
+}
+
+.label-invisible {
+  display: none
+}
+
+.sidenav-item:hover {
+  background-color: var(--palette-shade-4);
+}
+
+.active {
+  color: var(--accent-blue);
+}
+
+.active svg {
+  fill: var(--accent-blue);
+}

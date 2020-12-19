@@ -1,0 +1,20 @@
+.sidenav-toggle {
+  width: 42px;
+  height: 42px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  box-sizing: border-box;
+  margin: 4px 6px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  transition: background-color 0.1s;
+}
+
+.sidenav-toggle:hover {
+  background-color: var(--palette-shade-4);
+}
