@@ -1,14 +1,13 @@
 import './App.css';
 import React, { useEffect } from 'react';
-import { LightTheme, DarkTheme } from './themes/index';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from './store/actions/index';
 import { ThemeProvider } from 'styled-components';
+import { LightTheme, DarkTheme } from './themes/index';
 import { GlobalStyles } from './hoc/GlobalStyles/GlobalStyles';
 import { useDarkMode } from './components/useDarkMode/useDarkMode';
 import ThemeToggler from './components/ThemeToggler/ThemeToggler';
-import ActionButton from './components/ActionButton/ActionButton';
 import Register from './containers/Auth/Register/Register';
 import Home from './containers/home/home';
 import Login from './containers/Auth/Login/Login';
@@ -31,7 +30,13 @@ const App = (props) => {
     </Switch>
   );
 
-  let logoutButton = null;
+  let themeButton = (
+    <div
+      style={{ position: 'absolute', top: 0, left: 0, marginLeft: '12px' }}
+    >
+      <ThemeToggler theme={theme} toggleTheme={themeToggler} />
+    </div>
+  );
 
   if (props.isAuthenticated) {
     routes = (
@@ -43,32 +48,14 @@ const App = (props) => {
         </Switch>
       </Layout>
     );
-    logoutButton = (
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          marginRight: '12px',
-        }}
-      >
-        <ActionButton color="danger" fill onClick={props.onLogout}>
-          Logout
-        </ActionButton>
-      </div>
-    );
+    themeButton = null;
   }
 
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <div className="App">
-        <div
-          style={{ position: 'absolute', top: 0, left: 0, marginLeft: '12px' }}
-        >
-          <ThemeToggler theme={theme} toggleTheme={themeToggler} />
-        </div>
-        {logoutButton}
+        {themeButton}
         {routes}
       </div>
     </ThemeProvider>
@@ -84,7 +71,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onTryAutoSignup: () => dispatch(actions.authCheckState()),
-    onLogout: () => dispatch(actions.logout()),
   };
 };
 
