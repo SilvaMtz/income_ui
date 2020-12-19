@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './Sidenav.module.css';
 import SidenavToggle from './SidenavToggle/SidenavToggle';
 import SidenavSection from './SidenavSection/SidenavSection';
@@ -6,15 +6,25 @@ import SidenavSection from './SidenavSection/SidenavSection';
 const Sidenav = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  let classList = [
-    classes['sidenav'],
-    isOpen ? classes['sidenav-open'] : null
-  ];
+  useEffect(() => {
+    if (isOpen) {
+      document
+        .getElementsByTagName('main')[0]
+        .classList.add(classes['sidenav-isOpen']);
+    }
+    return () => {
+      document
+        .getElementsByTagName('main')[0]
+        .classList.remove(classes['sidenav-isOpen']);
+    }
+  }, [isOpen]);
+
+  let classList = [classes['sidenav'], isOpen ? classes['sidenav-open'] : null];
 
   let headerClassList = [
     classes['sidenav-header'],
-    isOpen ?  classes['extended'] :  null
-  ]
+    isOpen ? classes['extended'] : null,
+  ];
 
   let sections = (
     <React.Fragment>

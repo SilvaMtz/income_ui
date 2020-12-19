@@ -35,3 +35,7 @@
   margin: 0;
   margin-left: 18px;
 }
+
+.sidenav-isOpen {
+  margin-left: 250px;
+}

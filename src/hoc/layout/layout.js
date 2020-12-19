@@ -62,7 +62,7 @@ const Layout = (props) => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <Sidenav sections={sidenavSections} />
-      <main className={classes['container']}>
+      <main className={classes['layout']}>
         <Toolbar>
           <div>
             <ThemeToggler theme={theme} toggleTheme={themeToggler} />
