@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './home.module.css';
-import Sidenav from '../../components/Sidenav/Sidenav';
 
 const Home = (props) => {
 
