@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './Profile.module.css'
+import classes from './ProfilePage.module.css'
 
-const Profile = (props) => {
+const ProfilePage = (props) => {
 
   return (
     <div className={classes['profile']}>
@@ -11,4 +11,4 @@ const Profile = (props) => {
   );
 }
 
-export default Profile;
+export default ProfilePage;

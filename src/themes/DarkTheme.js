@@ -7,6 +7,7 @@ export const DarkTheme = {
   dangerRedOpaque: '#fc222233',
   textColor: '#ffffff',
   textColorShade: '#c5c5c5',
+  textColorOpaque: '#c5c5c530',
   paletteShade0: '#0a0a0a',
   paletteShade1: '#18191A',
   paletteShade2: '#242526',

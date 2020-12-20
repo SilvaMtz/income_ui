@@ -45,7 +45,7 @@ const Sidenav = (props) => {
     <div className={classList.join(' ')}>
       <div className={headerClassList.join(' ')}>
         <h2>Income App</h2>
-        <SidenavToggle onClick={() => setIsOpen(!isOpen)} />
+        <SidenavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </div>
       {sections}
     </div>

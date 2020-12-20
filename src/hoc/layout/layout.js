@@ -21,19 +21,19 @@ const Layout = (props) => {
       items: [
         {
           id: 1,
-          label: 'Option 1',
+          label: 'Home',
           icon: 'home',
           routePath: '/home',
         },
         {
           id: 2,
-          label: 'Option 2',
-          icon: 'academicCap',
-          routePath: '/profile',
+          label: 'Accounts',
+          icon: 'collection',
+          routePath: '/accounts',
         },
         {
           id: 3,
-          label: 'Option 3',
+          label: 'Credits',
           icon: 'cog',
           routePath: '/profile',
         },

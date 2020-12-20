@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     --danger-red-opaque: ${({ theme }) => theme.dangerRedOpaque};
     --text-color: ${({ theme }) => theme.textColor};
     --text-color-shade: ${({ theme }) => theme.textColorShade};
+    --text-color-opaque: ${({ theme }) => theme.textColorOpaque};
     --palette-shade-0: ${({ theme }) => theme.paletteShade0};
     --palette-shade-1: ${({ theme }) => theme.paletteShade1};
     --palette-shade-2: ${({ theme }) => theme.paletteShade2};

@@ -18,3 +18,12 @@
 .sidenav-toggle:hover {
   background-color: var(--palette-shade-4);
 }
+
+.sidenav-toggle.is-open svg {
+  transform: rotate(180deg);
+  transition: transform 0.1s;
+}
+
+.sidenav-toggle svg {
+  transition: transform 0.1s;
+}
