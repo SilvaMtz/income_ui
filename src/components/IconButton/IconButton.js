@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './IconButton.module.css';
+import SvgIcon from '../SvgIcon/SvgIcon';
 
 const IconButton = (props) => {
   const buttonColorMapping = {
@@ -11,8 +12,8 @@ const IconButton = (props) => {
 
   const buttonSizeMapping = {
     medium: '',
-    large: 'button--large'
-  }
+    large: 'button--large',
+  };
 
   let classList = [
     classes['icon-button'],
@@ -31,14 +32,14 @@ const IconButton = (props) => {
       onClick={props.onClick}
       type="button"
     >
-      <SvgIcon icon={props.icon} size={props.size ? props.size : "small"} />
+      <SvgIcon color={props.iconFill} icon={props.icon} size={props.size ? props.size : 'small'} />
     </button>
   );
 
   if (props.href) {
     button = (
       <a className={classList.join(' ')} href={props.href} type="button">
-        <SvgIcon icon={props.icon} size={props.size ? props.size : "small"} />
+        <SvgIcon icon={props.icon} size={props.size ? props.size : 'small'} />
       </a>
     );
   }

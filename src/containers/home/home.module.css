@@ -1,5 +1,6 @@
 .home {
   /* display: flex; */
-  height: 100%;
-  margin: 25px;
+  height: calc(100% - 56px);
+  padding: 25px;
+  box-sizing: border-box;
 }

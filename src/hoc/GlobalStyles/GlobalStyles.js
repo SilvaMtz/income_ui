@@ -15,6 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     --palette-shade-2: ${({ theme }) => theme.paletteShade2};
     --palette-shade-3: ${({ theme }) => theme.paletteShade3};
     --palette-shade-4: ${({ theme }) => theme.paletteShade4};
+    --palette-shade-5: ${({ theme }) => theme.paletteShade5};
   }
 
   .App {

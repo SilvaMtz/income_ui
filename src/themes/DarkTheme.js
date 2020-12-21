@@ -13,4 +13,5 @@ export const DarkTheme = {
   paletteShade2: '#242526',
   paletteShade3: '#3a3b3d',
   paletteShade4: '#494949',
+  paletteShade5: '#353535'
 }

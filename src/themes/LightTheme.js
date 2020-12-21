@@ -13,5 +13,6 @@ export const LightTheme = {
   paletteShade2: '#FFFFFF',
   paletteShade3: '#E4E6EB',
   paletteShade4: '#F4F4F4',
+  paletteShade5: '#fbfbfb'
 }
 

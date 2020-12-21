@@ -1,5 +1,4 @@
-.popup-menu-item {
-  width: auto;
+.context-menu-item {
   min-height: 48px;
   margin: 4px 8px;
   display: flex;
@@ -19,21 +18,22 @@
   cursor: pointer;
 }
 
-.popup-menu-item:first-child {
+.context-menu-item:first-child {
   margin-top: 8px;
 }
 
-.popup-menu-item:last-child {
+.context-menu-item:last-child {
   margin-bottom: 8px;
 }
 
-.popup-menu-item svg {
+.context-menu-item svg {
   fill: var(--text-color);
 }
 
 .label-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .label {
@@ -42,6 +42,6 @@
   margin-left: 16px;
 }
 
-.popup-menu-item:hover {
+.context-menu-item:hover {
   background-color: var(--palette-shade-4);
 }

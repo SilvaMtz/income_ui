@@ -1,17 +1,59 @@
 import React from 'react';
 import classes from './home.module.css';
-import PopupMenu from '../../components/PopupMenu/PopupMenu';
-import PopupMenuItem from '../../components/PopupMenu/PopupMenuItem/PopupMenuItem';
+import { ContextMenu } from '../../components/ContextMenu/ContextMenu';
 
 const Home = (props) => {
+
+  const panels = [
+    {
+      id: 0,
+      title: 'This is a context menu',
+      items: [
+        {
+          name: 'Handle an onClick',
+          icon: "annotation",
+          label: "Annotation",
+          onClick: () => {
+            return;
+          },
+        },
+        {
+          name: 'Go to a link',
+          icon: 'collection',
+          href: 'http://elastic.co',
+          target: '_blank',
+          label: "Annotation",
+        },
+        {
+          name: 'Nest panels',
+          icon: 'cog',
+          label: "Annotation",
+          panel: 1,
+        },
+      ]
+    },
+    {
+      id: 1,
+      initialFocusedItemIndex: 1,
+      title: 'Nest panels',
+      items: [
+        {
+          name: 'PDF reports',
+          icon: 'check',
+          label: "PDF",
+          onClick: () => {
+            return;
+          },
+        },
+      ],
+    },
+  ]
+
+
   return (
     <div className={classes['home']}>
-      <PopupMenu>
-        <PopupMenuItem icon="academicCap" label="Option 1" />
-        <PopupMenuItem icon="cog" label="Option 2" hasPanel />
-        <PopupMenuItem icon="adjustments" label="Option 3" />
-        <PopupMenuItem icon="check" label="Option 4" />
-      </PopupMenu>
+
+      <ContextMenu initialPanelId={0} panels={panels} />
     </div>
   );
 };

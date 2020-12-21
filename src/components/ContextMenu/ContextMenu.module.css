@@ -1,4 +1,4 @@
-.popup-menu {
+.ContextMenu {
   width: 256px;
   max-width: 100%;
   position: relative;
@@ -9,4 +9,8 @@
   background-color: var(--palette-shade-2);
   display: flex;
   flex-direction: column;
+}
+
+.ContextMenu__panel {
+  position: absolute; /* 1 */
 }

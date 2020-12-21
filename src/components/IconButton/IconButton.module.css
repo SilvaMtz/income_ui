@@ -9,10 +9,9 @@
   justify-content: center;
   align-items: center;
   padding: 12px;
-  margin: 12px auto;
   cursor: pointer;
   transition: background-color 0.1s;
-  background-color: transparent;
+  background-color: var(--palette-shade-3);
   box-sizing: border-box;
 }
 
@@ -21,46 +20,6 @@
   width: 48px;
 }
 
-.icon-button:hover,
-.icon-button:focus {
-  background-color: var(--accent-blue);
-}
-
-.icon-button.button--default.fill {
-  background-color: var(--palette-shade-3);
-  color: var(--text-color-shade);
-}
-
-.icon-button.button--default.fill:hover,
-.icon-button.button--default.fill:focus {
-  background-color: var(--palette-shade-4);
-}
-
-.icon-button.button--primary.fill {
-  background-color: var(--accent-blue);
-  fill: white;
-}
-
-.icon-button.button--primary.fill:hover,
-.icon-button.button--primary.fill:focus {
-  background-color: var(--accent-blue-light);
-}
-
-.icon-button.button--danger {
-  color: var(--danger-red);
-}
-
-.icon-button.button--danger:hover,
-.icon-button.button--danger:focus {
-  background-color: var(--danger-red-opaque);
-}
-
-.icon-button.button--danger.fill {
-  background-color: var(--danger-red);
-  color: white;
-}
-
-.icon-button.button--danger.fill:hover,
-.icon-button.button--danger.fill:focus {
-  background-color: var(--danger-red-light);
+.icon-button:hover {
+  background-color: var(--palette-shade-0);
 }
