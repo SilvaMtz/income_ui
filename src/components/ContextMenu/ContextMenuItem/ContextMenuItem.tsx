@@ -45,7 +45,7 @@ export class ContextMenuItem extends Component<Props> {
 
     if (hasPanel) {
       arrow = (
-        <SvgIcon type="chevronRight" />
+        <SvgIcon icon="chevronRight" />
       );
     }
 
