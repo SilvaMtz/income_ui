@@ -79,7 +79,16 @@
 }
 
 .ContextMenuPanelTitleText {
-  margin-left: 16px;
+  margin: 0 0 0 16px;
+  font-weight: 600;
+}
+
+.TitleDivider {
+  width: 85%;
+  margin: 4px auto 0 auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--palette-shade-3);
 }
 
 .ItemsContainer {

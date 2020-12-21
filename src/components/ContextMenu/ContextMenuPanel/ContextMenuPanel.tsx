@@ -233,23 +233,29 @@ export class ContextMenuPanel extends Component<Props, State> {
     if (title) {
       if (Boolean(onClose)) {
         panelTitle = (
-          <button
-            className={classes['ContextMenuPanelTitleButton']}
-            type="button"
-            onClick={onClose}
-            ref={(node) => {
-              this.backButton = node;
-            }}
-          >
-            <SvgIcon icon="arrowLeft" />
-            <p className={classes['ContextMenuPanelTitleText']}>{title}</p>
-          </button>
+          <React.Fragment>
+            <button
+              className={classes['ContextMenuPanelTitleButton']}
+              type="button"
+              onClick={onClose}
+              ref={(node) => {
+                this.backButton = node;
+              }}
+            >
+              <SvgIcon icon="arrowLeft" />
+              <p className={classes['ContextMenuPanelTitleText']}>{title}</p>
+            </button>
+            <hr className={classes['TitleDivider']} />
+          </React.Fragment>
         );
       } else {
         panelTitle = (
-          <div className={classes['ContextMenuPanelTitle']}>
-            <p className={classes['ContextMenuPanelTitleText']}>{title}</p>
-          </div>
+          <React.Fragment>
+            <div className={classes['ContextMenuPanelTitle']}>
+              <p className={classes['ContextMenuPanelTitleText']}>{title}</p>
+            </div>
+            <hr className={classes['TitleDivider']} />
+          </React.Fragment>
         );
       }
     }
