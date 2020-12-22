@@ -26,10 +26,6 @@
   margin-bottom: 8px;
 }
 
-.context-menu-item svg {
-  fill: var(--text-color);
-}
-
 .label-container {
   display: flex;
   flex-direction: row;

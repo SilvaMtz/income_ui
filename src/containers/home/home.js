@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './home.module.css';
-import { ContextMenu } from '../../components/ContextMenu/ContextMenu';
 
 const Home = (props) => {
 
@@ -53,7 +52,7 @@ const Home = (props) => {
   return (
     <div className={classes['home']}>
 
-      <ContextMenu initialPanelId={0} panels={panels} />
+      <h1>HOME</h1>
     </div>
   );
 };

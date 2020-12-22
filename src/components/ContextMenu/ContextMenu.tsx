@@ -36,7 +36,6 @@ export interface ContextMenuPanelDescriptor {
   items?: ContextMenuPanelItemDescriptor[];
   content?: ReactNode;
   width?: number;
-  initialFocusedItemIndex?: number;
 }
 
 export type ContextMenuProps = {
@@ -107,7 +106,6 @@ interface State {
   incomingPanelId?: ContextMenuPanelId;
   transitionDirection?: ContextMenuPanelTransitionDirection;
   isOutgoingPanelVisible: boolean;
-  focusedItemIndex?: number;
   isUsingKeyboardToNavigate: boolean;
 }
 
@@ -149,7 +147,6 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
       incomingPanelId: props.initialPanelId,
       transitionDirection: undefined,
       isOutgoingPanelVisible: false,
-      focusedItemIndex: undefined,
       isUsingKeyboardToNavigate: false,
     };
   }
@@ -190,13 +187,6 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
     ][itemIndex];
 
     if (nextPanelId) {
-      if (this.state.isUsingKeyboardToNavigate) {
-        this.setState(({ idToPanelMap }) => ({
-          focusedItemIndex:
-            idToPanelMap[nextPanelId].initialFocusedItemIndex ?? 0,
-        }));
-      }
-
       this.showPanel(nextPanelId, 'next');
     }
   };
@@ -250,6 +240,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
         name,
         key,
         icon,
+        iconFill,
         onClick,
         ...rest
       } = item;
@@ -274,6 +265,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
         <ContextMenuItem
           key={key || (typeof name === 'string' ? name : undefined) || index}
           icon={icon}
+          iconFill={iconFill}
           onClick={onClickHandler}
           hasPanel={Boolean(panel)}
           {...rest}>
@@ -323,11 +315,6 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
             : undefined
         }
         items={this.state.idToRenderedItemsMap[panelId]}
-        initialFocusedItemIndex={
-          this.state.isUsingKeyboardToNavigate
-            ? this.state.focusedItemIndex
-            : panel.initialFocusedItemIndex
-        }
         showNextPanel={this.showNextPanel}
         showPreviousPanel={this.showPreviousPanel}>
         {panel.content}

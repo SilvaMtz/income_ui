@@ -31,15 +31,16 @@ const IconButton = (props) => {
       className={classList.join(' ')}
       onClick={props.onClick}
       type="button"
+      ref={props.popoverRef}
     >
-      <SvgIcon color={props.iconFill} icon={props.icon} size={props.size ? props.size : 'small'} />
+      <SvgIcon color={props.iconFill} icon={props.icon} size={props.size ? props.size : 'medium'} />
     </button>
   );
 
   if (props.href) {
     button = (
-      <a className={classList.join(' ')} href={props.href} type="button">
-        <SvgIcon icon={props.icon} size={props.size ? props.size : 'small'} />
+      <a className={classList.join(' ')} ref={props.popoverRef} href={props.href} type="button">
+        <SvgIcon icon={props.icon} size={props.size ? props.size : 'medium'} />
       </a>
     );
   }

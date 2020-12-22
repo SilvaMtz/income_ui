@@ -1,7 +1,5 @@
 import React from 'react';
 import classes from './Layout.module.css';
-import { connect } from 'react-redux';
-import * as actions from '../../store/actions/index';
 import Sidenav from '../../components/Sidenav/Sidenav';
 import { ThemeProvider } from 'styled-components';
 import { LightTheme, DarkTheme } from '../../themes/index';
@@ -9,9 +7,8 @@ import { GlobalStyles } from '../GlobalStyles/GlobalStyles';
 import { useDarkMode } from '../../components/useDarkMode/useDarkMode';
 import ThemeToggler from '../../components/ThemeToggler/ThemeToggler';
 import Toolbar from '../../components/Toolbar/Toolbar';
-import ActionButton from '../../components/ActionButton/ActionButton';
-import IconButton from '../../components/IconButton/IconButton';
-import Tippy from '@tippyjs/react'
+import UserMenu from '../../components/UserControls/UserMenu/UserMenu';
+import CreateMenu from '../../components/UserControls/CreateMenu/CreateMenu';
 
 const Layout = (props) => {
   const [theme, themeToggler] = useDarkMode();
@@ -68,21 +65,13 @@ const Layout = (props) => {
           id: 1,
           node: <ThemeToggler theme={theme} toggleTheme={themeToggler} />
         },
-
         {
           id: 2,
-          node: <IconButton icon="chevronDown" color="default" fill/>
+          node: <CreateMenu />
         },
         {
           id: 3,
-          node: (
-            <IconButton
-              icon="logout"
-              color="default"
-              iconFill="var(--danger-red)"
-              onClick={props.onLogout}
-            />
-          )
+          node: <UserMenu />
         }
       ]
     }
@@ -100,10 +89,6 @@ const Layout = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onLogout: () => dispatch(actions.logout()),
-  };
-};
 
-export default connect(null, mapDispatchToProps)(Layout);
+
+export default Layout;

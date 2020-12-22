@@ -8,6 +8,7 @@ import SvgIcon from '../../SvgIcon/SvgIcon';
 
 export interface ContextMenuItemProps {
   icon?: string;
+  iconFill?: string;
   hasPanel?: boolean;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent) => void;
@@ -27,6 +28,7 @@ export class ContextMenuItem extends Component<Props> {
       children,
       hasPanel,
       icon,
+      iconFill,
       buttonRef,
       disabled: _disabled,
       href,
@@ -38,14 +40,14 @@ export class ContextMenuItem extends Component<Props> {
     let iconInstance;
 
     if (icon) {
-      iconInstance = <SvgIcon icon={icon} />;
+      iconInstance = <SvgIcon icon={icon} color={iconFill} />;
     }
 
     let arrow;
 
     if (hasPanel) {
       arrow = (
-        <SvgIcon icon="chevronRight" />
+        <SvgIcon icon="chevronRight"  />
       );
     }
 
