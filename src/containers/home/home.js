@@ -1,58 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './home.module.css';
+import Modal from '../../components/Modal/Modal';
+import ActionButton from '../../components/ActionButton/ActionButton';
 
 const Home = (props) => {
 
-  const panels = [
-    {
-      id: 0,
-      title: 'This is a context menu',
-      items: [
-        {
-          name: 'Handle an onClick',
-          icon: "annotation",
-          label: "Annotation",
-          onClick: () => {
-            return;
-          },
-        },
-        {
-          name: 'Go to a link',
-          icon: 'collection',
-          href: 'http://elastic.co',
-          target: '_blank',
-          label: "Annotation",
-        },
-        {
-          name: 'Nest panels',
-          icon: 'cog',
-          label: "Annotation",
-          panel: 1,
-        },
-      ]
-    },
-    {
-      id: 1,
-      initialFocusedItemIndex: 1,
-      title: 'Nest panels',
-      items: [
-        {
-          name: 'PDF reports',
-          icon: 'check',
-          label: "PDF",
-          onClick: () => {
-            return;
-          },
-        },
-      ],
-    },
-  ]
-
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className={classes['home']}>
-
       <h1>HOME</h1>
+      <ActionButton onClick={() => setIsOpen(true)}>Display Overlay</ActionButton>
+
+      {isOpen ? (
+        <Modal icon="cash" isOpen={isOpen} title="New Account" onClose={() => setIsOpen(false)}>
+          Hello There!
+        </Modal>
+      ) : null }
     </div>
   );
 };

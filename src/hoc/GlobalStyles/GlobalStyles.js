@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     --palette-shade-3: ${({ theme }) => theme.paletteShade3};
     --palette-shade-4: ${({ theme }) => theme.paletteShade4};
     --palette-shade-5: ${({ theme }) => theme.paletteShade5};
+    --background-overlay: ${({ theme }) => theme.backgroundOverlay};
   }
 
   .App {

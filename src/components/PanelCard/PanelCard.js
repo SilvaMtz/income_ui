@@ -9,16 +9,24 @@ const PanelCard = (props) => {
     large: 'panelPadding--large',
   };
 
+  const flexDirectionMapping = {
+    row: 'flex-row',
+    column: 'flex-column',
+  };
+
   let classList = [
     classes['panel-card'],
     props.paddingSize
       ? classes[panelPaddingSizeMap[props.paddingSize]]
       : classes[panelPaddingSizeMap['medium']],
+    props.flexDirection
+      ? classes[flexDirectionMapping[props.flexDirection]]
+      : classes[flexDirectionMapping['row']],
   ];
 
   let panelStyles = {
-    maxWidth: props.maxWidth ? `${props.maxWidth}px` : null
-  }
+    maxWidth: props.maxWidth ? `${props.maxWidth}px` : null,
+  };
 
   return (
     <div className={classList.join(' ')} style={panelStyles}>
