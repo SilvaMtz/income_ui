@@ -78,7 +78,7 @@ export const createAccount = (userId, token, payload) => {
       },
     };
     axiosApi
-      .post('/accounts', accountData)
+      .post('/accounts', accountData, { headers: headers })
       .then((response) => {
         console.log(response.data);
         // dispatch(createAccountSuccess(response.data));

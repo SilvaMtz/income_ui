@@ -1,4 +1,6 @@
 import React from 'react';
+import Spinner from '../Spinner/Spinner';
+import SvgIcon from '../SvgIcon/SvgIcon';
 import classes from './ActionButton.module.css';
 
 const ActionButton = (props) => {
@@ -27,14 +29,19 @@ const ActionButton = (props) => {
     props.restrainWidth ? classes['restrain-width'] : null
   ];
 
+  let iconInstance = null;
+  if (props.icon && !props.isLoading) {
+    iconInstance = <SvgIcon icon={props.icon} size="small" color="white" />
+  }
+
   let button = (
     <button
       className={classList.join(' ')}
       onClick={props.onClick}
       type="button"
     >
-
       {props.children ? props.children : props.label}
+      {iconInstance}
     </button>
   );
 
@@ -42,6 +49,7 @@ const ActionButton = (props) => {
     button = (
       <a className={classList.join(' ')} href={props.href} type="button">
         {props.children ? props.children : props.label}
+        {iconInstance}
       </a>
     );
   }

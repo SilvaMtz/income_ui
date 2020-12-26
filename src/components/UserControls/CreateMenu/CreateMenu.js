@@ -3,9 +3,11 @@ import classes from './CreateMenu.module.css';
 import IconButton from '../../IconButton/IconButton';
 import { ContextMenu } from '../../ContextMenu/ContextMenu';
 import Popover from 'react-popover';
+import NewAccountModal from '../../../containers/Modals/NewAccountModal/NewAccountModal';
 
 const CreateMenu = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [accountModalOpen, setAccountModalOpen] = useState(false);
 
   const panels = [
     {
@@ -17,7 +19,8 @@ const CreateMenu = (props) => {
           icon: 'collection',
           label: 'Account',
           onClick: () => {
-            return;
+            setIsOpen(false);
+            setAccountModalOpen(true);
           },
         },
         {
@@ -26,15 +29,16 @@ const CreateMenu = (props) => {
           label: 'Credit',
           onClick: () => {
             return;
-          }
+          },
         },
         {
           name: 'Transaction',
           icon: 'switchHorizontal',
           label: 'Transaction',
+          panel: 1,
           onClick: () => {
             return;
-          }
+          },
         },
         {
           name: 'Insight',
@@ -42,29 +46,62 @@ const CreateMenu = (props) => {
           label: 'Insight',
           onClick: () => {
             return;
-          }
-        }
+          },
+        },
       ],
-    }
+    },
+    {
+      id: 1,
+      title: 'Transaction',
+      items: [
+        {
+          name: 'Transfer',
+          label: 'Transfer',
+          onClick: () => {
+            return;
+          },
+        },
+        {
+          name: 'Deposit',
+          label: 'Deposit',
+          onClick: () => {
+            return;
+          },
+        },
+        {
+          name: 'Withdrawal',
+          label: 'Withdrawal',
+          onClick: () => {
+            return;
+          },
+        },
+      ],
+    },
   ];
 
   return (
-    <Popover
-      className={classes['popover-dd']}
-      isOpen={isOpen}
-      place="below"
-      preferPlace="below"
-      body={<ContextMenu initialPanelId={0} panels={panels} />}
-      onOuterAction={() => setIsOpen(!isOpen)}
-      enterExitTransitionDurationMs={200}
-    >
-      <IconButton
-        onClick={() => setIsOpen(!isOpen)}
-        icon="plus"
-        color="default"
-        fill
+    <React.Fragment>
+      <Popover
+        className={classes['popover-dd']}
+        isOpen={isOpen}
+        place="below"
+        preferPlace="below"
+        body={<ContextMenu initialPanelId={0} panels={panels} />}
+        onOuterAction={() => setIsOpen(!isOpen)}
+        enterExitTransitionDurationMs={200}
+      >
+        <IconButton
+          onClick={() => setIsOpen(!isOpen)}
+          icon="plus"
+          color="default"
+          fill
+        />
+      </Popover>
+      <NewAccountModal
+        onClose={() => setAccountModalOpen(false)}
+        isOpen={accountModalOpen}
       />
-    </Popover>
+    </React.Fragment>
   );
 };
 

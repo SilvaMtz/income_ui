@@ -10,7 +10,9 @@ const OverlayMask = (props) => {
 
   return (
     <div className={classList.join(' ')}>
-      {props.children}
+      <div className={classes['overlay-children']}>
+        {props.children}
+      </div>
     </div>
   )
 }

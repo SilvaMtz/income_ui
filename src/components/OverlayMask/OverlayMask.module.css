@@ -17,3 +17,12 @@
 .overlay-mask.overlay-hidden {
   display: none;
 }
+
+.overlay-mask .overlay-children {
+  position: absolute;
+  z-index: 9001;
+  width: 860px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

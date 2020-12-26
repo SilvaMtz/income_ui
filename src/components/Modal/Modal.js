@@ -27,6 +27,8 @@ const Modal = (props) => {
       : classes[bodyPaddingSizeClassMapping['medium']],
   ];
 
+
+
   return (
     <OverlayMask isOpen={props.isOpen} onClose={props.onClose}>
       <PanelCard flexDirection="column" maxWidth="500" paddingSize="none">
