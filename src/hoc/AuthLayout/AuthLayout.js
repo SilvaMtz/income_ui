@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Layout.module.css';
+import classes from './AuthLayout.module.css';
 import Sidenav from '../../components/Sidenav/Sidenav';
 import { ThemeProvider } from 'styled-components';
 import { LightTheme, DarkTheme } from '../../themes/index';
@@ -9,8 +9,9 @@ import ThemeToggler from '../../components/ThemeToggler/ThemeToggler';
 import Toolbar from '../../components/Toolbar/Toolbar';
 import UserMenu from '../../components/UserControls/UserMenu/UserMenu';
 import CreateMenu from '../../components/UserControls/CreateMenu/CreateMenu';
+import { connect } from 'react-redux';
 
-const Layout = (props) => {
+const AuthLayout = (props) => {
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
 
@@ -91,4 +92,4 @@ const Layout = (props) => {
 
 
 
-export default Layout;
+export default AuthLayout;

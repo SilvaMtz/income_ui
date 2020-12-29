@@ -8,42 +8,59 @@ import * as actions from '../../../store/actions/index';
 import Select from '../../../components/Select/Select';
 
 const NewDepositModal = (props) => {
-
-  const [depositAmount, setDepositAmount] = useState('');
-  const [accountId, setAccountId] = useState(0);
+  const [depositAmount, setDepositAmount] = useState(0);
+  const [selectedAccount, setSelectedAccount] = useState(null);
 
   const depositToAccount = () => {
     const accountData = {
-      account_id: accountId,
+      account_id: selectedAccount ? selectedAccount.value : null,
       amount: depositAmount,
     };
-    props.onDepositToAccount(props.userId, props.token, accountData);
+    console.log(accountData);
+    // props.onDepositToAccount(props.userId, props.token, accountData);
   };
 
   const accountList = [
     {
       value: '0',
-      label: 'Banorte 0'
+      label: 'Banorte 0',
     },
     {
       value: '1',
-      label: 'Banorte 1'
+      label: 'Banorte 1',
     },
     {
       value: '2',
-      label: 'Banorte 2'
+      label: 'Banorte 2',
     },
     {
       value: '3',
-      label: 'Banorte 3'
-    }
-  ]
+      label: 'Banorte 3',
+    },
+  ];
 
   return (
-    <Modal title="New Deposit" onClose={props.onClose} isOpen={props.isOpen} maxWidth={680} paddingSize="large">
+    <Modal
+      title="New Deposit"
+      onClose={props.onClose}
+      isOpen={props.isOpen}
+      maxWidth={680}
+      paddingSize="large"
+    >
       <Form>
-        <Select options={accountList} label="Account" onChange={e => setAccountId(e.target.value)} placeholder="Destination Account" />
-        <Input type="number" label="Amount" onChange={(e) => setDepositAmount(e.target.value)} value={depositAmount} />
+        <Select
+          options={accountList}
+          label="Account"
+          placeholder="Destination Account"
+          onChange={setSelectedAccount}
+          value={selectedAccount}
+        />
+        <Input
+          type="number"
+          label="Amount"
+          onChange={(e) => setDepositAmount(e.target.value)}
+          value={depositAmount}
+        />
         <ActionButton
           color="primary"
           fill
@@ -55,7 +72,7 @@ const NewDepositModal = (props) => {
       </Form>
     </Modal>
   );
-}
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -63,7 +80,7 @@ const mapStateToProps = (state) => {
     error: state.accounts.error,
     accounts: state.accounts.accounts,
     token: state.auth.token,
-    userId: state.auth.userId
+    userId: state.auth.userId,
   };
 };
 

@@ -11,7 +11,7 @@ import ThemeToggler from './components/ThemeToggler/ThemeToggler';
 import Register from './containers/Auth/Register/Register';
 import Home from './containers/home/home';
 import Login from './containers/Auth/Login/Login';
-import Layout from './hoc/Layout/Layout';
+import AuthLayout from './hoc/AuthLayout/AuthLayout';
 import ProfilePage from './containers/ProfilePage/ProfilePage';
 import AccountsPage from './containers/AccountsPage/AccountsPage';
 
@@ -41,14 +41,14 @@ const App = (props) => {
 
   if (props.isAuthenticated) {
     routes = (
-      <Layout>
+      <AuthLayout>
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/profile" component={ProfilePage} />
           <Route path="/accounts" component={AccountsPage} />
           <Redirect to="/home" />
         </Switch>
-      </Layout>
+      </AuthLayout>
     );
     themeButton = null;
   }
