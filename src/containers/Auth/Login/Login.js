@@ -26,14 +26,14 @@ const Login = (props) => {
         <Form>
           <Input
             placeholder="Email"
-            iconType="atSymbol"
+            icon="atSymbol"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
             placeholder="Password"
-            iconType="key"
+            icon="key"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

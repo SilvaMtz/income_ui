@@ -41,35 +41,35 @@ const Register = () => {
         <Form>
           <Input
             placeholder="Name"
-            iconType="userCircle"
+            icon="userCircle"
             type="text"
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
           />
           <Input
             placeholder="Last Name"
-            iconType="user"
+            icon="user"
             type="text"
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
           />
           <Input
             placeholder="Email"
-            iconType="atSymbol"
+            icon="atSymbol"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <Input
             placeholder="Password"
-            iconType="key"
+            icon="key"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
           <Input
             placeholder="Confirm Password"
-            iconType="lockClosed"
+            icon="lockClosed"
             type="password"
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             value={passwordConfirmation}

@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Select.module.css';
 import ReactSelect from 'react-select';
+import SvgIcon from '../SvgIcon/SvgIcon';
 
 const Select = (props) => {
   const customStyles = {
@@ -15,7 +16,7 @@ const Select = (props) => {
       boxSizing: 'border-box',
       transition: 'border 0.2s',
       color: 'var(--text-color)',
-      padding: '4px 14px',
+      padding: props.icon ? '4px 14px 4px 38px' : '4px 14px',
       fontSize: '0.95rem',
       cursor: 'pointer',
     }),
@@ -37,6 +38,7 @@ const Select = (props) => {
       borderRadius: 12,
       border: '1px solid var(--palette-shade-5)',
       boxShadow: '0px 0px 8px var(--text-color-opaque)',
+      zIndex: 2
     }),
     menuList: (provided) => ({
       ...provided,
@@ -76,11 +78,33 @@ const Select = (props) => {
       ...provided,
       color: 'var(--text-color)',
     }),
+    valueContainer: (provided) => ({
+      ...provided,
+      padding: 0,
+    }),
   };
 
+  let svgIcon = null;
+  if (props.icon) {
+    svgIcon = (
+      <SvgIcon
+        className={classes['select-icon']}
+        icon={props.icon}
+        color="var(--text-color-shade)"
+        size="small"
+      />
+    )
+  }
+
+  let wrapperClassList= [
+    classes['react-select-wrapper'],
+    props.icon ? classes['wrapper--hasIcon'] : null
+  ]
+
   return (
-    <div className={classes['react-select-wrapper']}>
+    <div className={wrapperClassList.join(' ')}>
       <label className={classes['react-select-label']}>{props.label}</label>
+      {svgIcon}
       <ReactSelect styles={customStyles} {...props} />
     </div>
   );

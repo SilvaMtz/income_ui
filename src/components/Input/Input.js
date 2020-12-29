@@ -5,12 +5,12 @@ import SvgIcon from '../SvgIcon/SvgIcon';
 const Input = (props) => {
   let wrapperClassList = [
     classes['input-wrapper'],
-    props.iconType ? classes['wrapper--hasIcon'] : null,
+    props.icon ? classes['wrapper--hasIcon'] : null,
   ];
 
   let inputClassList = [
     classes['input'],
-    props.iconType ? classes['input--hasIcon'] : null,
+    props.icon ? classes['input--hasIcon'] : null,
   ];
 
   let inputLabel = null;
@@ -22,11 +22,11 @@ const Input = (props) => {
   }
 
   let svgIcon = null;
-  if (props.iconType) {
+  if (props.icon) {
     svgIcon = (
       <SvgIcon
         className={classes['input-icon']}
-        icon={props.iconType}
+        icon={props.icon}
         color="var(--text-color-shade)"
         size="small"
       />

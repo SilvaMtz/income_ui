@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './AuthLayout.module.css';
 import Sidenav from '../../components/Sidenav/Sidenav';
 import { ThemeProvider } from 'styled-components';
@@ -10,10 +10,18 @@ import Toolbar from '../../components/Toolbar/Toolbar';
 import UserMenu from '../../components/UserControls/UserMenu/UserMenu';
 import CreateMenu from '../../components/UserControls/CreateMenu/CreateMenu';
 import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 const AuthLayout = (props) => {
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
+
+  useEffect(() => {
+    if (props.isAuthenticated) {
+      props.onFetchBanks()
+      props.onFetchAccounts(props.userId, props.token);
+    }
+  });
 
   const sidenavSections = [
     {
@@ -61,21 +69,21 @@ const AuthLayout = (props) => {
   const toolbarSections = [
     {
       id: 1,
-      items:[
+      items: [
         {
           id: 1,
-          node: <ThemeToggler theme={theme} toggleTheme={themeToggler} />
+          node: <ThemeToggler theme={theme} toggleTheme={themeToggler} />,
         },
         {
           id: 2,
-          node: <CreateMenu />
+          node: <CreateMenu />,
         },
         {
           id: 3,
-          node: <UserMenu />
-        }
-      ]
-    }
+          node: <UserMenu />,
+        },
+      ],
+    },
   ];
 
   return (
@@ -90,6 +98,19 @@ const AuthLayout = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.auth.token != null,
+    token: state.auth.token,
+    userId: state.auth.userId
+  };
+};
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onFetchBanks: () => dispatch(actions.fetchBanks()),
+    onFetchAccounts: (userId, token) => dispatch(actions.fetchAccounts(userId, token)),
+  };
+};
 
-export default AuthLayout;
+export default connect(mapStateToProps, mapDispatchToProps)(AuthLayout);

@@ -12,3 +12,16 @@
   font-size: 0.75rem;
   color: var(--text-color-shade);
 }
+
+.react-select-wrapper > .select-icon {
+  position: absolute;
+  left: 8px;
+  bottom: 7px;
+  width: 1.35rem;
+  height: 1.35rem;
+  z-index: 1;
+}
+
+.react-select-wrapper.wrapper--hasIcon {
+  position: relative;
+}

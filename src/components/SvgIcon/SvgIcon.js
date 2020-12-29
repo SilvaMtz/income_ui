@@ -19,6 +19,30 @@ const SvgIcon = (props) => {
 
   let iconColor = props.color ? props.color : 'var(--text-color)';
 
+  let iconPath = (
+    <path
+      fillRule="evenodd"
+      d={icons[props.icon]}
+      clipRule="evenodd"
+    />
+  )
+  if (icons[props.icon].length > 1) {
+    iconPath = (
+      <React.Fragment>
+        {icons[props.icon].map((path, index) => {
+          return (
+            <path
+              key={index}
+              fillRule="evenodd"
+              d={path}
+              clipRule="evenodd"
+            />
+          )
+        })}
+      </React.Fragment>
+    )
+  }
+
   return (
     <svg
       className={classList.join(' ')}
@@ -26,11 +50,7 @@ const SvgIcon = (props) => {
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        fillRule="evenodd"
-        d={icons[props.icon]}
-        clipRule="evenodd"
-      />
+      {iconPath}
     </svg>
   );
 };

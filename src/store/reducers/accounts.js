@@ -6,7 +6,9 @@ const initialState = {
   isLoading: false,
 };
 
-// Fetch Accounts Reducer
+/*
+  Fetch Accounts Reducer
+*/
 const fetchAccountsStart = (state, action) => {
   return {
     ...state,
@@ -18,11 +20,9 @@ const fetchAccountsStart = (state, action) => {
 const fetchAccountsSuccess = (state, action) => {
   return {
     ...state,
-    token: action.token,
-    userEmail: action.email,
-    userId: action.userId,
     error: null,
     isLoading: false,
+    accounts: action.accounts
   };
 };
 
@@ -34,7 +34,9 @@ const fetchAccountsFail = (state, action) => {
   };
 };
 
-// Create Account Reducer
+/*
+  Create Account Reducer
+*/
 const createAccountStart = (state, action) => {
   return {
     ...state,
@@ -59,6 +61,9 @@ const createAccountFail = (state, action) => {
   };
 };
 
+/*
+  Accounts Reducer
+*/
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     // Fetch Accounts
