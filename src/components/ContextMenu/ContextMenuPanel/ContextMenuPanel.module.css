@@ -3,6 +3,7 @@
   visibility: visible;
   display: flex;
   flex-direction: column;
+  outline: none;
 }
 
 .ContextMenuPanel.ContextMenuPanel-txInLeft {

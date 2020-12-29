@@ -1,0 +1,14 @@
+.react-select-wrapper {
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.react-select-label {
+  margin-left: 16px;
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+  color: var(--text-color-shade);
+}

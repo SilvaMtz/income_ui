@@ -4,10 +4,12 @@ import IconButton from '../../IconButton/IconButton';
 import { ContextMenu } from '../../ContextMenu/ContextMenu';
 import Popover from 'react-popover';
 import NewAccountModal from '../../../containers/Modals/NewAccountModal/NewAccountModal';
+import NewDepositModal from '../../../containers/Modals/NewDepositModal/NewDepositModal';
 
 const CreateMenu = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [accountModalOpen, setAccountModalOpen] = useState(false);
+  const [depositModalOpen, setDepositModalOpen] = useState(false);
 
   const panels = [
     {
@@ -57,6 +59,7 @@ const CreateMenu = (props) => {
         {
           name: 'Transfer',
           label: 'Transfer',
+          icon: 'paperAirplane',
           onClick: () => {
             return;
           },
@@ -64,13 +67,16 @@ const CreateMenu = (props) => {
         {
           name: 'Deposit',
           label: 'Deposit',
+          icon: 'plusCircle',
           onClick: () => {
-            return;
+            setIsOpen(false);
+            setDepositModalOpen(true);
           },
         },
         {
           name: 'Withdrawal',
           label: 'Withdrawal',
+          icon: 'minusCircle',
           onClick: () => {
             return;
           },
@@ -100,6 +106,10 @@ const CreateMenu = (props) => {
       <NewAccountModal
         onClose={() => setAccountModalOpen(false)}
         isOpen={accountModalOpen}
+      />
+      <NewDepositModal
+        onClose={() => setDepositModalOpen(false)}
+        isOpen={depositModalOpen}
       />
     </React.Fragment>
   );
