@@ -33,7 +33,6 @@ export const fetchAccounts = (token) => {
     axiosApi
       .get('/accounts', { headers: headers })
       .then((response) => {
-        console.log(response);
         // localStorage.setItem('userAccounts', response.data);
         dispatch(fetchAccountsSuccess(response.data));
       })

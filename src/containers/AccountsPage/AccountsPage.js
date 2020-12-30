@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import classes from './AccountsPage.module.css';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 
 const AccountsPage = (props) => {
 
-  useEffect(() => {
+  // BUG: FetchAccountsSuccess keeps getting called
+  // and thus the page is rerendered endelessly, placed and empty array as hotfix
+  useLayoutEffect(() => {
     if (props.isAuthenticated) {
       props.onFetchAccounts(props.token);
     }
-  });
+  }, []);
 
   let content = "Accounts Page"
 
@@ -29,8 +31,8 @@ const mapStateToProps = (state) => {
     isAuthenticated: state.auth.token != null,
     token: state.auth.token,
     userId: state.auth.userId,
-    // isLoading: state.accounts.isLoading,
-    // accounts: state.accounts.accounts
+    isLoading: state.accounts.isLoading,
+    accounts: state.accounts.accounts
   };
 };
 
