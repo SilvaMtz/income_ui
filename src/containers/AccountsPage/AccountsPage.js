@@ -7,7 +7,7 @@ const AccountsPage = (props) => {
 
   useEffect(() => {
     if (props.isAuthenticated) {
-      props.onFetchAccounts(props.userId, props.token);
+      props.onFetchAccounts(props.token);
     }
   });
 
@@ -29,13 +29,14 @@ const mapStateToProps = (state) => {
     isAuthenticated: state.auth.token != null,
     token: state.auth.token,
     userId: state.auth.userId,
-    isLoading: state.accounts.isLoading
+    // isLoading: state.accounts.isLoading,
+    // accounts: state.accounts.accounts
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFetchAccounts: (userId, token) => dispatch(actions.fetchAccounts(userId, token)),
+    onFetchAccounts: (token) => dispatch(actions.fetchAccounts(token)),
   };
 };
 

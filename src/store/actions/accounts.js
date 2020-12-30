@@ -24,23 +24,18 @@ export const fetchAccountsFail = (error) => {
   };
 };
 
-export const fetchAccounts = (userId, token) => {
+export const fetchAccounts = (token) => {
   return (dispatch) => {
     dispatch(fetchAccountsStart());
-    const accountsData = {
-      accounts: {
-        user_id: userId,
-      },
-    };
-    const authHeaders = {
+    const headers = {
       Authorization: `Bearer ${token}`,
     };
     axiosApi
-      .get('/accounts', accountsData, { headers: authHeaders })
+      .get('/accounts', { headers: headers })
       .then((response) => {
         console.log(response);
-        // localStorage.setItem('userAccounts', response.data.accounts);
-        dispatch(fetchAccountsSuccess(response.data.accounts));
+        // localStorage.setItem('userAccounts', response.data);
+        dispatch(fetchAccountsSuccess(response.data));
       })
       .catch((err) => {
         dispatch(fetchAccountsFail(err.data));
@@ -60,7 +55,7 @@ export const createAccountStart = () => {
 export const createAccountSuccess = (account) => {
   return {
     type: actionTypes.CREATE_ACCOUNT_SUCCESS,
-    account: { ...account },
+    account: [account],
   };
 };
 

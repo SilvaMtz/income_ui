@@ -19,7 +19,7 @@ const AuthLayout = (props) => {
   useEffect(() => {
     if (props.isAuthenticated) {
       props.onFetchBanks()
-      props.onFetchAccounts(props.userId, props.token);
+      props.onFetchAccounts(props.token);
     }
   });
 
@@ -102,14 +102,14 @@ const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.auth.token != null,
     token: state.auth.token,
-    userId: state.auth.userId
+    userId: state.auth.userId,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchBanks: () => dispatch(actions.fetchBanks()),
-    onFetchAccounts: (userId, token) => dispatch(actions.fetchAccounts(userId, token)),
+    onFetchAccounts: (token) => dispatch(actions.fetchAccounts(token)),
   };
 };
 

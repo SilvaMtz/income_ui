@@ -48,6 +48,7 @@ const createAccountStart = (state, action) => {
 const createAccountSuccess = (state, action) => {
   return {
     ...state,
+    accounts: state.accounts.concat(action.account),
     error: null,
     isLoading: false,
   };

@@ -13,9 +13,11 @@ const Sidenav = (props) => {
         .classList.add(classes['sidenav-isOpen']);
     }
     return () => {
-      document
-        .getElementsByTagName('main')[0]
-        .classList.remove(classes['sidenav-isOpen']);
+      if (document.getElementsByTagName('main')[0]) {
+        document
+          .getElementsByTagName('main')[0]
+          .classList.remove(classes['sidenav-isOpen']);
+      }
     }
   }, [isOpen]);
 
