@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import axiosLocal from '../../../axios-local';
 import classes from './Register.module.css';
-import Input from '../../../components/Input/Input';
 import AuthCard from '../AuthCard/AuthCard';
-import ActionButton from '../../../components/ActionButton/ActionButton';
-import Form from '../../../components/Form/Form';
+import { FormFields, InputField, ActionButton } from 'react-play-ui';
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -22,8 +20,8 @@ const Register = () => {
         first_name: firstName,
         last_name: lastName,
         password: password,
-        password_confirmation: password,
-      },
+        password_confirmation: password
+      }
     };
     axiosLocal
       .post('/users', formData)
@@ -38,48 +36,57 @@ const Register = () => {
   return (
     <div className={classes['register-container']}>
       <AuthCard maxWidth={900} formLabel="Register" authImage="Account Image">
-        <Form>
-          <Input
+        <FormFields>
+          <InputField
             placeholder="Name"
-            iconType="userCircle"
+            icon="userCircle"
             type="text"
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
           />
-          <Input
+          <br />
+          <InputField
             placeholder="Last Name"
-            iconType="user"
+            icon="user"
             type="text"
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
           />
-          <Input
+          <br />
+          <InputField
             placeholder="Email"
-            iconType="atSymbol"
+            icon="atSymbol"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
-          <Input
+          <br />
+          <InputField
             placeholder="Password"
-            iconType="key"
+            icon="key"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <Input
+          <br />
+          <InputField
             placeholder="Confirm Password"
-            iconType="lockClosed"
+            icon="lockClosed"
             type="password"
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             value={passwordConfirmation}
           />
-          <ActionButton onClick={handleFormSubmit} fill={true} color="primary">
-            Submit
-          </ActionButton>
-        </Form>
-        <h5>Already have and account? Log in!</h5>
-        <ActionButton restrainWidth={true} href="/login" label="Log in" />
+          <br />
+          <ActionButton
+            onClick={handleFormSubmit}
+            fill={true}
+            restrainWidth={false}
+            color="primary"
+            label="Register"
+          />
+        </FormFields>
+        <h5 style={{ margin: "12px 0px", fontWeight: 400 }}>Already have and account? Log in!</h5>
+        <ActionButton fill={false} color="primary" restrainWidth={false} href="/login" label="Log in" />
       </AuthCard>
     </div>
   );

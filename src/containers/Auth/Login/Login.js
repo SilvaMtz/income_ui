@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import classes from './Login.module.css';
-import Input from '../../../components/Input/Input';
 import AuthCard from '../AuthCard/AuthCard';
-import ActionButton from '../../../components/ActionButton/ActionButton';
-import Form from '../../../components/Form/Form';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
+import { FormFields, InputField, ActionButton } from 'react-play-ui';
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
@@ -13,7 +11,7 @@ const Login = (props) => {
 
   const handleAuthLogin = (e) => {
     e.preventDefault();
-    props.onAuth(email, password)
+    props.onAuth(email, password);
   };
 
   return (
@@ -23,27 +21,40 @@ const Login = (props) => {
         formLabel="Welcome Back!"
         authImage="Account Image"
       >
-        <Form>
-          <Input
+        <FormFields>
+          <InputField
             placeholder="Email"
-            iconType="atSymbol"
+            icon="atSymbol"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Input
+          <br />
+          <InputField
             placeholder="Password"
-            iconType="key"
+            icon="key"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <ActionButton onClick={handleAuthLogin} fill={true} color="primary">
-            Log in
-          </ActionButton>
-        </Form>
-        <h5>Not registered? Sign up below!</h5>
-        <ActionButton restrainWidth={true} href="/register" label="Register" />
+          <br />
+          <ActionButton
+            onClick={handleAuthLogin}
+            fill={true}
+            color="primary"
+            label="Log in"
+            restrainWidth={false}
+          />
+          <h6 style={{ margin: 0, marginLeft: 2, marginTop: 2, color: "rgb(var(--primary-color))" }}><a href="/">Recover Password</a></h6>
+        </FormFields>
+        <h5 style={{ margin: "12px 0px", fontWeight: 400 }}>Not registered? Sign up below!</h5>
+        <ActionButton
+          color="primary"
+          fill={false}
+          href="/register"
+          label="Register"
+          restrainWidth={false}
+        />
       </AuthCard>
     </div>
   );
@@ -53,14 +64,13 @@ const mapStateToProps = (state) => {
   return {
     loading: state.auth.isLoading,
     error: state.auth.error,
-    isAuthenticated: state.auth.token != null,
+    isAuthenticated: state.auth.token != null
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAuth: (email, password) =>
-      dispatch(actions.auth(email, password)),
+    onAuth: (email, password) => dispatch(actions.auth(email, password))
   };
 };
 

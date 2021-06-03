@@ -1,25 +1,17 @@
 import React from 'react';
 import classes from './AuthCard.module.css';
-import PanelCard from '../../../components/PanelCard/PanelCard';
+import { PanelCard } from 'react-play-ui';
 
 const AuthCard = (props) => {
 
-  let childrenClassList = [
+  const childrenClassList = [
     classes['card-box'],
     classes['children-card-box']
   ]
 
-  let imageBoxClassList = [
-    classes['card-box'],
-    classes['image-card-box']
-  ]
-
   return (
-    <PanelCard maxWidth={props.maxWidth} paddingSize="none">
+    <PanelCard maxWidth={350} paddingSize="none">
       <div className={classes['auth-card']}>
-        <div className={imageBoxClassList.join(' ')}>
-          {props.authImage}
-        </div>
         <div className={childrenClassList.join(' ')}>
           <h2 className={classes['form-label']}>{props.formLabel}</h2>
           {props.children}

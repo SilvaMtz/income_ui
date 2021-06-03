@@ -1,27 +1,27 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from './store/actions/index';
-import { ThemeProvider } from 'styled-components';
-import { LightTheme, DarkTheme } from './themes/index';
-import { GlobalStyles } from './hoc/GlobalStyles/GlobalStyles';
-import { useDarkMode } from './components/useDarkMode/useDarkMode';
-import ThemeToggler from './components/ThemeToggler/ThemeToggler';
 import Register from './containers/Auth/Register/Register';
-import Home from './containers/home/home';
+import Home from './containers/Home/Home';
 import Login from './containers/Auth/Login/Login';
-import Layout from './hoc/Layout/Layout';
-import ProfilePage from './containers/ProfilePage/ProfilePage';
-import AccountsPage from './containers/AccountsPage/AccountsPage';
+import { Layout } from './hoc/Layout/Layout.tsx';
+import { ThemeProvider } from 'styled-components';
+import {
+  GlobalStyles,
+  LightTheme,
+  DarkTheme,
+  useDarkMode
+} from 'react-play-ui';
 
 const App = (props) => {
+
+  const themeMode = useDarkMode() === 'light' ? LightTheme : DarkTheme;
+
   useEffect(() => {
     props.onTryAutoSignup();
   });
-
-  const [theme, themeToggler] = useDarkMode();
-  const themeMode = theme === 'light' ? LightTheme : DarkTheme;
 
   let routes = (
     <Switch>
@@ -31,33 +31,21 @@ const App = (props) => {
     </Switch>
   );
 
-  let themeButton = (
-    <div
-      style={{ position: 'absolute', top: 0, left: 0, marginLeft: '12px' }}
-    >
-      <ThemeToggler theme={theme} toggleTheme={themeToggler} />
-    </div>
-  );
-
   if (props.isAuthenticated) {
     routes = (
       <Layout>
         <Switch>
           <Route path="/home" component={Home} />
-          <Route path="/profile" component={ProfilePage} />
-          <Route path="/accounts" component={AccountsPage} />
           <Redirect to="/home" />
         </Switch>
       </Layout>
     );
-    themeButton = null;
   }
 
   return (
     <ThemeProvider theme={themeMode}>
-      <GlobalStyles />
+      <GlobalStyles theme={themeMode} />
       <div className="App">
-        {themeButton}
         {routes}
       </div>
     </ThemeProvider>
